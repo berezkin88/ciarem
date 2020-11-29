@@ -1,1 +1,28 @@
-<p>login works!</p>
+<div class="container">
+  <div class="d-md-flex justify-content-center align-items-center">
+    <form>
+      <div class="d-flex flex-column align-items-center">
+        <div>
+          <fa-icon [icon]="male" size="5x"></fa-icon>
+        </div>
+        <div class="input-group mt-5 mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">
+              <fa-icon [icon]="user"></fa-icon>
+            </span>
+          </div>
+          <input type="text" id="username" placeholder="username" class="form-control" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon2">
+              <fa-icon [icon]="lock"></fa-icon>
+            </span>
+          </div>
+          <input type="password" id="password" placeholder="password" class="form-control" aria-describedby="basic-addon2">
+        </div>
+        <button class="btn btn-md btn-primary mt-3">Login</button>
+      </div>
+    </form>
+  </div>
+</div>

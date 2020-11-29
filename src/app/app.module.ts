@@ -11,6 +11,7 @@ import { AgreementsComponent } from './agreements/agreements.component';
 import { SubmissionsComponent } from './submissions/submissions.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ClientsComponent } from './clients/clients.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ClientsComponent } from './clients/clients.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
