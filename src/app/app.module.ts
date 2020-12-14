@@ -1,3 +1,7 @@
+
+import { fakeBackendProvider } from './fake-back/fake-backend';
+import { environment } from './../environments/environment';
+import { UserService } from './services/user.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -12,6 +16,10 @@ import { SubmissionsComponent } from './submissions/submissions.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ClientsComponent } from './clients/clients.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AngularFireModule } from '@angular/fire';
+import { FormsModule } from '@angular/forms';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,9 +36,16 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    FormsModule,
+    AngularFireDatabaseModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    UserService,
+    fakeBackendProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
