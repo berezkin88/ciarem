@@ -1,7 +1,10 @@
 
 <h4 class="text-center title"> ТОВ "Якесь ТОВ" </h4>
 <div class="list-group list-group-flush">
-  <a href="#" class="list-group-item list-group-item-action">
+  <a
+    routerLink="/bills-acts"
+    class="list-group-item list-group-item-action active"
+    [class.active]="getRoute() === '/bills-acts'">
     <div class="row">
       <fa-icon [icon]="invoices" size="2x" class="col-3"></fa-icon>
       <div class="col-9 d-flex align-items-center">
@@ -9,7 +12,10 @@
       </div>
     </div>
   </a>
-  <a href="#" class="list-group-item list-group-item-action">
+  <a
+    routerLink="/bills-schedule"
+    class="list-group-item list-group-item-action"
+    [class.active]="getRoute() === '/bills-schedule'">
     <div class="row">
       <fa-icon [icon]="calendar" size="2x" class="col-3"></fa-icon>
       <div class="col-9 d-flex align-items-center">
@@ -17,7 +23,10 @@
       </div>
     </div>
   </a>
-  <a href="#" class="list-group-item list-group-item-action">
+  <a
+    routerLink="/agreements"
+    class="list-group-item list-group-item-action"
+    [class.active]="getRoute() === '/agreements'">
     <div class="row">
       <fa-icon [icon]="documents" size="2x" class="col-3"></fa-icon>
       <div class="col-9 d-flex align-items-center">
@@ -25,7 +34,10 @@
       </div>
     </div>
   </a>
-  <a href="#" class="list-group-item list-group-item-action">
+  <a
+    routerLink="/submissions"
+    class="list-group-item list-group-item-action"
+    [class.active]="getRoute() === '/' || getRoute() === '/submissions'">
     <div class="row">
       <fa-icon [icon]="questions" size="2x" class="col-3"></fa-icon>
       <div class="col-9 d-flex align-items-center">
@@ -33,7 +45,10 @@
       </div>
     </div>
   </a>
-  <a href="#" class="list-group-item list-group-item-action">
+  <a
+    routerLink="/profile"
+    class="list-group-item list-group-item-action"
+    [class.active]="getRoute() === '/profile'">
     <div class="row">
       <fa-icon [icon]="profile" size="2x" class="col-3"></fa-icon>
       <div class="col-9 d-flex align-items-center">

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Component } from '@angular/core';
 import {
   faUserCircle,
   faClipboardList,
@@ -12,14 +13,16 @@ import {
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.sass'],
 })
-export class NavigationComponent implements OnInit {
+export class NavigationComponent {
   profile = faUserCircle;
   documents = faClipboardList;
   calendar = faCalendarDay;
   invoices = faFileInvoiceDollar;
   questions = faQuestionCircle;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {}
+  getRoute(): string {
+    return this.router.url;
+  }
 }

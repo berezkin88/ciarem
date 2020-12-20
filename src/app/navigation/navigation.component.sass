@@ -1,16 +1,24 @@
+
+$highlited-text-color: rgb(196, 50, 63)
+$icon-color: rgb(73, 80, 87)
+
 .list-group-item-action:hover
-  background-color: #f8f9fa20
-  color: rgb(196, 50, 63)
+  background-color: rgba(248, 249, 250, 0.2)
+  color: $highlited-text-color
   & fa-icon
-    color: #495057
+    color: $icon-color
 
 fa-icon
   text-align: center
+  color: $icon-color
 
 .list-group-item
-  background-color: #ffffff00
+  background-color: rgb(255, 255, 255, 0)
   border: 1px solid rgba(0, 0, 0, 0)
   font-weight: bold
+  &.active
+    color: $highlited-text-color
+    margin-top: 0
 
 .title
   color: rgb(179, 56, 73)
