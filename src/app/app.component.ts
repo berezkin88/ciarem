@@ -1,5 +1,6 @@
 import { AuthService } from './services/auth.service';
 import { Component } from '@angular/core';
+import { faBriefcase } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
+  briefcase = faBriefcase;
 
   constructor(private authService: AuthService) { }
 
