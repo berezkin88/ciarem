@@ -22,29 +22,112 @@
   <table class="table table-striped mb-0">
     <thead class="table-light">
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th scope="col">Місяць</th>
+        <th scope="col">Номер рахунку</th>
+        <th scope="col">Сума, грн</th>
+        <th scope="col">Рахунок</th>
+        <th scope="col">Статус</th>
+        <th scope="col">Акт</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+        <td>Серпень</td>
+        <td>208</td>
+        <td>105 000,00</td>
+        <td>Рахунок №208 Оренда 01.09.2020.jpg</td>
+        <td><fa-icon [icon]="pending" size="2x" class="icon-grey mx-3"></fa-icon></td>
+        <td>Акт №202 від 01.09.2020.jpg</td>
+        <td>
+          <button class="btn btn-orange text-icon-color">Редагувати</button>
+        </td>
+        <td>
+          <button class="btn">
+            <fa-icon [icon]="delete" size="3x" class="icon-red mx-3"></fa-icon>
+          </button>
+        </td>
       </tr>
       <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
+        <td>Серпень</td>
+        <td>206</td>
+        <td>21 456,99</td>
+        <td>Рахунок №205 Послуги 01.09.2020.jpg</td>
+        <td><fa-icon [icon]="pending" size="2x" class="icon-grey mx-3"></fa-icon></td>
+        <td>Акт №200 від 01.09.2020.jpg</td>
+        <td>
+          <button class="btn btn-orange text-icon-color">Редагувати</button>
+        </td>
+        <td>
+          <button class="btn">
+            <fa-icon [icon]="delete" size="3x" class="icon-red mx-3"></fa-icon>
+          </button>
+        </td>
       </tr>
       <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
+        <td>Липень</td>
+        <td>180</td>
+        <td>105 000,00</td>
+        <td>Рахунок №208 Оренда 01.08.2020.jpg</td>
+        <td><fa-icon [icon]="complete" size="2x" class="icon-green mx-3"></fa-icon></td>
+        <td>Акт №168 від 01.08.2020.jpg</td>
+        <td>
+          <button class="btn btn-orange text-icon-color">Редагувати</button>
+        </td>
+        <td>
+          <button class="btn">
+            <fa-icon [icon]="delete" size="3x" class="icon-red mx-3"></fa-icon>
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>Липень</td>
+        <td>178</td>
+        <td>20 350,01</td>
+        <td>Рахунок №205 Послуги 01.08.2020.jpg</td>
+        <td><fa-icon [icon]="complete" size="2x" class="icon-green mx-3"></fa-icon></td>
+        <td>Акт №152 від 01.08.2020.jpg</td>
+        <td>
+          <button class="btn btn-orange text-icon-color">Редагувати</button>
+        </td>
+        <td>
+          <button class="btn">
+            <fa-icon [icon]="delete" size="3x" class="icon-red mx-3"></fa-icon>
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>Червень</td>
+        <td>156</td>
+        <td>105 000,00</td>
+        <td>Рахунок №208 Оренда 01.07.2020.jpg</td>
+        <td><fa-icon [icon]="failed" size="2x" class="icon-red mx-3"></fa-icon></td>
+        <td>Акт №104 від 01.07.2020.jpg</td>
+        <td>
+          <button class="btn btn-orange text-icon-color">Редагувати</button>
+        </td>
+        <td>
+          <button class="btn">
+            <fa-icon [icon]="delete" size="3x" class="icon-red mx-3"></fa-icon>
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>Червень</td>
+        <td>155</td>
+        <td>17 240,33</td>
+        <td>Рахунок №205 Послуги 01.07.2020.jpg</td>
+        <td><fa-icon [icon]="complete" size="2x" class="icon-green mx-3"></fa-icon></td>
+        <td>Акт №102 від 01.07.2020.jpg</td>
+        <td>
+          <button class="btn btn-orange text-icon-color">Редагувати</button>
+        </td>
+        <td>
+          <button class="btn">
+            <fa-icon [icon]="delete" size="3x" class="icon-red mx-3"></fa-icon>
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
