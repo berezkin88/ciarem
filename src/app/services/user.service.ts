@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
+  // deprecated
   constructor(private db: AngularFireDatabase) { }
 
   getUser(username: string, password: string): Observable<any[]>{

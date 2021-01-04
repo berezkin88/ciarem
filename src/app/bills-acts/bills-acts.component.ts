@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Bill } from './../models/bill';
+import { BillsService } from './../services/bills.service';
+import { Component, OnInit } from '@angular/core';
 import {
   faCaretUp,
   faClipboardCheck,
@@ -12,12 +15,18 @@ import {
   templateUrl: './bills-acts.component.html',
   styleUrls: ['./bills-acts.component.sass'],
 })
-export class BillsActsComponent {
+export class BillsActsComponent implements OnInit {
   up = faCaretUp;
   complete = faClipboardCheck;
   pending = faHourglassHalf;
   failed = faExclamationTriangle;
   delete = faTimes;
 
-  constructor() {}
+  bills: Observable<Bill[]>;
+
+  constructor(private billsService: BillsService) {}
+
+  ngOnInit(): void {
+    this.bills = this.billsService.getAll();
+  }
 }
