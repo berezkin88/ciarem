@@ -1,9 +1,8 @@
 import { Observable } from 'rxjs';
-import { Bill } from './../models/bill';
+import { Doc } from '../models/doc';
 import { BillsService } from './../services/bills.service';
 import { Component, OnInit } from '@angular/core';
 import {
-  faCaretUp,
   faClipboardCheck,
   faHourglassHalf,
   faExclamationTriangle,
@@ -16,17 +15,16 @@ import {
   styleUrls: ['./bills-acts.component.sass'],
 })
 export class BillsActsComponent implements OnInit {
-  up = faCaretUp;
   complete = faClipboardCheck;
   pending = faHourglassHalf;
   failed = faExclamationTriangle;
   delete = faTimes;
 
-  bills: Observable<Bill[]>;
+  doc$: Observable<Doc[]>;
 
   constructor(private billsService: BillsService) {}
 
   ngOnInit(): void {
-    this.bills = this.billsService.getAll();
+    this.doc$ = this.billsService.getAll();
   }
 }

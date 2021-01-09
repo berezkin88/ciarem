@@ -1,12 +1,11 @@
 import { Client } from './client';
-import { Status } from './status';
 
-export interface Bill {
+export interface Doc {
   date: Date;
   serial: number;
   sum: number;
   enroll: string;
-  status: Status;
+  status: string;
   act: string;
   client: Client;
 }

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ciarem": {
+    "siarem": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ciarem",
+            "outputPath": "dist/siarem",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ciarem:build"
+            "browserTarget": "siarem:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ciarem:build:production"
+              "browserTarget": "siarem:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ciarem:build"
+            "browserTarget": "siarem:build"
           }
         },
         "test": {
@@ -115,11 +115,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ciarem:serve"
+            "devServerTarget": "siarem:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ciarem:serve:production"
+              "devServerTarget": "siarem:serve:production"
             }
           }
         },
@@ -130,7 +130,7 @@
       }
     }
   },
-  "defaultProject": "ciarem",
+  "defaultProject": "siarem",
   "cli": {
     "analytics": false
   }

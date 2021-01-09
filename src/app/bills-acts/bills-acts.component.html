@@ -33,93 +33,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td class="align-middle">Серпень</td>
-        <td class="align-middle text-center">208</td>
-        <td class="align-middle text-center">105 000,00</td>
-        <td class="align-middle text-center">Рахунок №208 Оренда 01.09.2020.jpg</td>
-        <td class="align-middle text-center"><fa-icon [icon]="pending" size="2x" class="icon-grey mx-3"></fa-icon></td>
-        <td class="align-middle text-center">Акт №202 від 01.09.2020.jpg</td>
-        <td class="align-middle text-center">
-          <button class="btn btn-orange text-icon-color m-0">Редагувати</button>
-        </td>
-        <td class="align-middle text-center">
-          <button class="btn btn-no-indent">
-            <fa-icon [icon]="delete" size="3x" class="icon-red mx-3"></fa-icon>
-          </button>
-        </td>
-      </tr>
-      <tr>
-        <td class="align-middle">Серпень</td>
-        <td class="align-middle text-center">206</td>
-        <td class="align-middle text-center">21 456,99</td>
-        <td class="align-middle text-center">Рахунок №205 Послуги 01.09.2020.jpg</td>
-        <td class="align-middle text-center"><fa-icon [icon]="pending" size="2x" class="icon-grey mx-3"></fa-icon></td>
-        <td class="align-middle text-center">Акт №200 від 01.09.2020.jpg</td>
-        <td class="align-middle text-center">
-          <button class="btn btn-orange text-icon-color m-0">Редагувати</button>
-        </td>
-        <td class="align-middle text-center">
-          <button class="btn btn-no-indent">
-            <fa-icon [icon]="delete" size="3x" class="icon-red mx-3"></fa-icon>
-          </button>
-        </td>
-      </tr>
-      <tr>
-        <td class="align-middle">Липень</td>
-        <td class="align-middle text-center">180</td>
-        <td class="align-middle text-center">105 000,00</td>
-        <td class="align-middle text-center">Рахунок №208 Оренда 01.08.2020.jpg</td>
-        <td class="align-middle text-center"><fa-icon [icon]="complete" size="2x" class="icon-green mx-3"></fa-icon></td>
-        <td class="align-middle text-center">Акт №168 від 01.08.2020.jpg</td>
-        <td class="align-middle text-center">
-          <button class="btn btn-orange text-icon-color m-0">Редагувати</button>
-        </td>
-        <td class="align-middle text-center">
-          <button class="btn btn-no-indent">
-            <fa-icon [icon]="delete" size="3x" class="icon-red mx-3"></fa-icon>
-          </button>
-        </td>
-      </tr>
-      <tr>
-        <td class="align-middle">Липень</td>
-        <td class="align-middle text-center">178</td>
-        <td class="align-middle text-center">20 350,01</td>
-        <td class="align-middle text-center">Рахунок №205 Послуги 01.08.2020.jpg</td>
-        <td class="align-middle text-center"><fa-icon [icon]="complete" size="2x" class="icon-green mx-3"></fa-icon></td>
-        <td class="align-middle text-center">Акт №152 від 01.08.2020.jpg</td>
-        <td class="align-middle text-center">
-          <button class="btn btn-orange text-icon-color m-0">Редагувати</button>
-        </td>
-        <td class="align-middle text-center">
-          <button class="btn btn-no-indent">
-            <fa-icon [icon]="delete" size="3x" class="icon-red mx-3"></fa-icon>
-          </button>
-        </td>
-      </tr>
-      <tr>
-        <td class="align-middle">Червень</td>
-        <td class="align-middle text-center">156</td>
-        <td class="align-middle text-center">105 000,00</td>
-        <td class="align-middle text-center">Рахунок №208 Оренда 01.07.2020.jpg</td>
-        <td class="align-middle text-center"><fa-icon [icon]="failed" size="2x" class="icon-red mx-3"></fa-icon></td>
-        <td class="align-middle text-center">Акт №104 від 01.07.2020.jpg</td>
-        <td class="align-middle text-center">
-          <button class="btn btn-orange text-icon-color m-0">Редагувати</button>
-        </td>
-        <td class="align-middle text-center">
-          <button class="btn btn-no-indent">
-            <fa-icon [icon]="delete" size="3x" class="icon-red mx-3"></fa-icon>
-          </button>
-        </td>
-      </tr>
-      <tr>
-        <td class="align-middle">Червень</td>
-        <td class="align-middle text-center">155</td>
-        <td class="align-middle text-center">17 240,33</td>
-        <td class="align-middle text-center">Рахунок №205 Послуги 01.07.2020.jpg</td>
-        <td class="align-middle text-center"><fa-icon [icon]="complete" size="2x" class="icon-green mx-3"></fa-icon></td>
-        <td class="align-middle text-center">Акт №102 від 01.07.2020.jpg</td>
+      <tr *ngFor="let doc of doc$ | async">
+        <td class="align-middle">{{ doc.date | date:"LLLL" }}</td>
+        <td class="align-middle text-center">{{ doc.serial }}</td>
+        <td class="align-middle text-center">{{ doc.sum | currency:"UAH":"symbol-narrow" }}</td>
+        <td class="align-middle text-center">{{ doc.enroll }}</td>
+        <td class="align-middle text-center"><icon-provider [status]="doc.status"></icon-provider></td>
+        <td class="align-middle text-center">{{ doc.act }}</td>
         <td class="align-middle text-center">
           <button class="btn btn-orange text-icon-color m-0">Редагувати</button>
         </td>

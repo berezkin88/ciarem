@@ -1,4 +1,4 @@
-
+import { CommonModule } from '@angular/common';
 import { fakeBackendProvider } from './fake-back/fake-backend';
 import { environment } from './../environments/environment';
 import { UserService } from './services/user.service';
@@ -22,6 +22,7 @@ import { FormsModule } from '@angular/forms';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { IconProviderComponent } from './icon-provider/icon-provider.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AgreementsComponent,
     SubmissionsComponent,
     ProfileComponent,
-    ClientsComponent
+    ClientsComponent,
+    IconProviderComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AngularFireDatabaseModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatTableModule
+    MatTableModule,
+    CommonModule
   ],
   providers: [
     UserService,
