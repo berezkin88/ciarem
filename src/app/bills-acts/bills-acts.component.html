@@ -1,56 +1,59 @@
-<div class="row">
-  <h4 class="component-title highlighted-text col-8">Рахунки та акти</h4>
-  <select class="form-select cal-4" aria-label="Default select example">
+<div class="row align-items-center justify-content-around">
+  <tenant-office></tenant-office>
+  <h4 class="component-title highlighted-text">Рахунки та акти</h4>
+  <select class="form-select" aria-label="Default select example">
     <option selected>Open this select menu</option>
     <option value="1">One</option>
     <option value="2">Two</option>
     <option value="3">Three</option>
   </select>
 </div>
-<div class="table-content">
+<div>
   <div class="new-docs">
     <button class="btn btn-orange text-icon-color">Новий рахунок</button>
     <button class="btn btn-orange text-icon-color">Новий акт</button>
     <button class="btn btn-orange text-icon-color">Акт звірки</button>
   </div>
-  <button type="button" class="btn btn-nav">
+  <button type="button" class="btn btn-nav" (click)="scrollUp()">
     <div class="d-flex">
       <div class="up"></div>
       2020
     </div>
   </button>
-  <table class="table table-striped mb-0">
-    <thead>
-      <tr>
-        <th scope="col" class="align-middle text-center">Місяць</th>
-        <th scope="col" class="align-middle text-center text-wrap" style="width: min-content;">Номер рахунку</th>
-        <th scope="col" class="align-middle text-center">Сума, грн</th>
-        <th scope="col" class="align-middle text-center">Рахунок</th>
-        <th scope="col" class="align-middle text-center">Статус</th>
-        <th scope="col" class="align-middle text-center">Акт</th>
-        <th scope="col"></th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let doc of doc$ | async">
-        <td class="align-middle">{{ doc.date | date:"LLLL" }}</td>
-        <td class="align-middle text-center">{{ doc.serial }}</td>
-        <td class="align-middle text-center">{{ doc.sum | currency:"UAH":"symbol-narrow" }}</td>
-        <td class="align-middle text-center">{{ doc.enroll }}</td>
-        <td class="align-middle text-center"><icon-provider [status]="doc.status"></icon-provider></td>
-        <td class="align-middle text-center">{{ doc.act }}</td>
-        <td class="align-middle text-center">
-          <button class="btn btn-orange text-icon-color m-0">Редагувати</button>
-        </td>
-        <td class="align-middle text-center">
-          <button class="btn btn-no-indent">
-            <fa-icon [icon]="delete" size="3x" class="icon-red mx-3"></fa-icon>
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="table-responsive">
+    <table class="table table-striped mb-0" #scrollTable>
+      <thead>
+        <tr>
+          <th scope="col" class="align-middle text-center">Місяць</th>
+          <th scope="col" class="align-middle text-center text-wrap" style="width: min-content;">Номер рахунку</th>
+          <th scope="col" class="align-middle text-center">Сума, грн</th>
+          <th scope="col" class="align-middle text-center">Рахунок</th>
+          <th scope="col" class="align-middle text-center">Статус</th>
+          <th scope="col" class="align-middle text-center">Акт</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let doc of doc$ | async">
+          <td class="align-middle text-center">{{ doc.date | date:"LLLL" }}</td>
+          <td class="align-middle text-center">{{ doc.serial }}</td>
+          <td class="align-middle text-center">{{ doc.sum | currency:"UAH":"symbol-narrow" }}</td>
+          <td class="align-middle text-center">{{ doc.enroll }}</td>
+          <td class="align-middle text-center"><icon-provider [status]="doc.status"></icon-provider></td>
+          <td class="align-middle text-center">{{ doc.act }}</td>
+          <td class="align-middle text-center">
+            <button class="btn btn-orange text-icon-color m-0">Редагувати</button>
+          </td>
+          <td class="align-middle text-center">
+            <button class="btn btn-no-indent">
+              <fa-icon [icon]="delete" size="3x" class="icon-red mx-3"></fa-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   <button type="button" class="btn btn-nav">
     <div class="d-flex">
       <div class="down"></div>

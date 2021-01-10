@@ -23,6 +23,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IconProviderComponent } from './icon-provider/icon-provider.component';
+import { TenantOfficeComponent } from './tenant-office/tenant-office.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { IconProviderComponent } from './icon-provider/icon-provider.component';
     SubmissionsComponent,
     ProfileComponent,
     ClientsComponent,
-    IconProviderComponent
+    IconProviderComponent,
+    TenantOfficeComponent
   ],
   imports: [
     BrowserModule,
