@@ -20,8 +20,8 @@
       2020
     </div>
   </button>
-  <div class="table-responsive">
-    <table class="table table-striped mb-0" #scrollTable>
+  <div class="table-responsive" #scrollTable>
+    <table class="table table-striped mb-0">
       <thead>
         <tr>
           <th scope="col" class="align-middle text-center">Місяць</th>
@@ -54,7 +54,7 @@
       </tbody>
     </table>
   </div>
-  <button type="button" class="btn btn-nav">
+  <button type="button" class="btn btn-nav" (click)="scrollDown()">
     <div class="d-flex">
       <div class="down"></div>
       2019

@@ -22,6 +22,20 @@ export class BillsActsComponent implements OnInit {
   }
 
   scrollUp(): void {
-    this.scrollTable.nativeElement
+    this.scrolling(-60);
+  }
+
+  scrollDown(): void {
+    this.scrolling(60);
+  }
+
+  private scrolling(pixels: number): void {
+    const scrollTableElement = this.scrollTable.nativeElement;
+    const currentPosition = scrollTableElement.scrollTop;
+    scrollTableElement.scroll({
+      top: currentPosition + pixels,
+      left: 0,
+      behavior: 'smooth'
+    });
   }
 }
