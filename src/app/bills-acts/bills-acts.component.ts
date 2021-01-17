@@ -1,6 +1,7 @@
+import { TenantsService } from './../services/tenants-service.service';
 import { Observable } from 'rxjs';
 import { Doc } from '../models/doc';
-import { BillsService } from './../services/bills.service';
+import { DocsService } from './../services/bills.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
@@ -14,11 +15,15 @@ export class BillsActsComponent implements OnInit {
   @ViewChild('scrollTable') scrollTable: ElementRef;
 
   doc$: Observable<Doc[]>;
+  tenant$: Observable<any[]>;
 
-  constructor(private billsService: BillsService) {}
+  constructor(
+    private docsService: DocsService,
+    private tenantsService: TenantsService) {}
 
   ngOnInit(): void {
-    this.doc$ = this.billsService.getAll();
+    this.doc$ = this.docsService.getAllDocs();
+    this.tenant$ = this.tenantsService.getAllTenants();
   }
 
   scrollUp(): void {

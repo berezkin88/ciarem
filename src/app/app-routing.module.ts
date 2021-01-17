@@ -2,7 +2,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ClientsComponent } from './clients/clients.component';
 import { BillsScheduleComponent } from './bills-schedule/bills-schedule.component';
 import { AgreementsComponent } from './agreements/agreements.component';
-import { AuthGuardService } from './auth-guard.service';
+import { AuthGuardService } from './services/auth-guard.service';
 import { BillsActsComponent } from './bills-acts/bills-acts.component';
 import { LoginComponent } from './login/login.component';
 import { SubmissionsComponent } from './submissions/submissions.component';

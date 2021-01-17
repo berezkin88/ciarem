@@ -3,9 +3,9 @@
   <h4 class="component-title highlighted-text">Рахунки та акти</h4>
   <select class="form-select" aria-label="Default select example">
     <option selected>Open this select menu</option>
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
+    <option *ngFor="let tenant of tenant$ | async"  value="{{ tenant }}">
+      {{ tenant.name }}
+    </option>
   </select>
 </div>
 <div>
@@ -38,7 +38,7 @@
         <tr *ngFor="let doc of doc$ | async">
           <td class="align-middle text-center">{{ doc.date | date:"LLLL" }}</td>
           <td class="align-middle text-center">{{ doc.serial }}</td>
-          <td class="align-middle text-center">{{ doc.sum | currency:"UAH":"symbol-narrow" }}</td>
+          <td class="align-middle text-center">{{ doc.sum | currency:'':'' }}</td>
           <td class="align-middle text-center">{{ doc.enroll }}</td>
           <td class="align-middle text-center"><icon-provider [status]="doc.status"></icon-provider></td>
           <td class="align-middle text-center">{{ doc.act }}</td>

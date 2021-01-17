@@ -7,11 +7,11 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class BillsService {
+export class DocsService {
 
   constructor(private db: AngularFireDatabase) { }
 
-  getAll(client?: Client): Observable<Doc[]> {
+  getAllDocs(client?: Client): Observable<Doc[]> {
     return this.db.list<Doc>('/docs/').valueChanges();
   }
 }
