@@ -1,4 +1,3 @@
-import { Client } from './client';
 
 export interface Doc {
   date: Date;
@@ -7,5 +6,5 @@ export interface Doc {
   enroll: string;
   status: string;
   act: string;
-  client: Client;
+  client: number;
 }

@@ -1,5 +1,5 @@
 import { Doc } from '../models/doc';
-import { Client } from './../models/client';
+import { Tenant } from '../models/tenant';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
@@ -11,7 +11,7 @@ export class DocsService {
 
   constructor(private db: AngularFireDatabase) { }
 
-  getAllDocs(client?: Client): Observable<Doc[]> {
+  getAllDocs(client?: Tenant): Observable<Doc[]> {
     return this.db.list<Doc>('/docs/').valueChanges();
   }
 }
