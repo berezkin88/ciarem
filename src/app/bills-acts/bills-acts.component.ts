@@ -1,11 +1,12 @@
+import { Doc } from './../models/doc';
 import { Tenant } from './../models/tenant';
 import { TenantsService } from '../services/tenants.service';
 import { Observable } from 'rxjs';
-import { Doc } from '../models/doc';
 import { DocsService } from './../services/bills.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { SnapshotAction } from '@angular/fire/database';
+import { StatusUtil } from '../utilities/status-util';
 
 @Component({
   selector: 'app-bills-acts',
@@ -17,6 +18,8 @@ export class BillsActsComponent implements OnInit {
   @ViewChild('scrollTable') scrollTable: ElementRef;
 
   doc$: Observable<Doc[]>;
+  docs: Doc[] = [] as Doc[];
+  filteredDocs: Doc[] = [] as Doc[];
   tenant$: Observable<SnapshotAction<Tenant>[]>;
 
   constructor(
@@ -24,8 +27,20 @@ export class BillsActsComponent implements OnInit {
     private tenantsService: TenantsService) {}
 
   ngOnInit(): void {
-    this.doc$ = this.docsService.getAllDocs();
+    this.initDocs();
     this.tenant$ = this.tenantsService.getAllTenants();
+  }
+
+  private initDocs(): void {
+    this.docsService.getAllDocs()
+    .subscribe(results => {
+      results.forEach(doc => {
+        const d = doc;
+        d.status = StatusUtil.valueOf(doc.status.toString());
+        this.docs.push(d);
+        this.filteredDocs.push(d);
+      });
+    });
   }
 
   scrollUp(): void {

@@ -14,7 +14,7 @@ import {
   styleUrls: ['./icon-provider.component.sass'],
 })
 export class IconProviderComponent implements OnInit {
-  @Input('status') status: string;
+  @Input('status') status: Status;
 
   icon: IconDefinition;
   iconColor: string;
@@ -23,15 +23,15 @@ export class IconProviderComponent implements OnInit {
 
   ngOnInit(): void {
     switch (this.status) {
-      case 'complete':
+      case Status.COMPLETE:
         this.icon = faClipboardCheck;
         this.iconColor = 'icon-green';
         break;
-      case 'pending':
+      case Status.PENDING:
         this.icon = faHourglassHalf;
         this.iconColor = 'icon-grey';
         break;
-      case 'failed':
+      case Status.FAILED:
         this.icon = faExclamationTriangle;
         this.iconColor = 'icon-red';
         break;

@@ -35,7 +35,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let doc of doc$ | async">
+        <tr *ngFor="let doc of filteredDocs">
           <td class="align-middle text-center">{{ doc.date | date:"LLLL" }}</td>
           <td class="align-middle text-center">{{ doc.serial }}</td>
           <td class="align-middle text-center">{{ doc.sum | currency:'':'' }}</td>

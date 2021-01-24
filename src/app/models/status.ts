@@ -1,4 +1,4 @@
 
 export enum Status {
-  COMPLETE, PENDING, FAILED
+  COMPLETE, PENDING, FAILED, UNKNOWN
 }
