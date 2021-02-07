@@ -49,7 +49,7 @@ export class AuthService {
   }
 
   loggedIn(): boolean {
-    let token = localStorage.getItem('token');
+    const token = localStorage.getItem('token');
     if (token === null) {
       return false;
     }

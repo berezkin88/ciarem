@@ -24,7 +24,8 @@ export class BillsActsComponent implements OnInit {
 
   constructor(
     private docsService: DocsService,
-    private tenantsService: TenantsService) {}
+    private tenantsService: TenantsService
+  ) {}
 
   ngOnInit(): void {
     this.initDocs();
@@ -32,9 +33,8 @@ export class BillsActsComponent implements OnInit {
   }
 
   private initDocs(): void {
-    this.docsService.getAllDocs()
-    .subscribe(results => {
-      results.forEach(doc => {
+    this.docsService.getAllDocs().subscribe((results) => {
+      results.forEach((doc) => {
         const d = doc;
         d.status = StatusUtil.valueOf(doc.status.toString());
         this.docs.push(d);
@@ -57,11 +57,13 @@ export class BillsActsComponent implements OnInit {
     scrollTableElement.scroll({
       top: currentPosition + pixels,
       left: 0,
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
   }
 
-  filter(value: number): any {
-    console.log(value);
+  filter(value?: string): any {
+    this.filteredDocs = value
+      ? this.docs.filter((doc) => doc.client === value)
+      : this.docs;
   }
 }

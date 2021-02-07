@@ -2,7 +2,7 @@
   <tenant-office></tenant-office>
   <h4 class="component-title highlighted-text">Рахунки та акти</h4>
   <select class="form-select">
-    <option selected>Усі орендарі</option>
+    <option selected (click)="filter()">Усі орендарі</option>
     <option *ngFor="let tenant of tenant$ | async" (click)="filter(tenant.key)">
       {{ tenant.payload.val().name }}
     </option>

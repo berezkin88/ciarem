@@ -7,5 +7,5 @@ export interface Doc {
   enroll: string;
   status: Status;
   act: string;
-  client: number;
+  client: string;
 }
