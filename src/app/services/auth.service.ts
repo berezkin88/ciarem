@@ -56,4 +56,24 @@ export class AuthService {
 
     return true;
   }
+
+  isSecretary(): boolean {
+    const token = localStorage.getItem('token');
+
+    if (token === users[1].token || token === users[2].token) {
+      return true;
+    }
+
+    return false;
+  }
+
+  isManager(): boolean {
+    const token = localStorage.getItem('token');
+
+    if (token === users[2].token) {
+      return true;
+    }
+
+    return false;
+  }
 }

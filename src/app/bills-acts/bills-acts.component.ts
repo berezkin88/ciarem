@@ -1,3 +1,4 @@
+import { AuthService } from './../services/auth.service';
 import { Doc } from './../models/doc';
 import { Tenant } from './../models/tenant';
 import { TenantsService } from '../services/tenants.service';
@@ -24,7 +25,8 @@ export class BillsActsComponent implements OnInit {
 
   constructor(
     private docsService: DocsService,
-    private tenantsService: TenantsService
+    private tenantsService: TenantsService,
+    public authService: AuthService
   ) {}
 
   ngOnInit(): void {
