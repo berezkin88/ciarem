@@ -35,7 +35,13 @@ export class BillsActsComponent implements OnInit {
   }
 
   private initDocs(): void {
-    this.docsService.getAllDocs().subscribe((results) => {
+    let userId: string;
+
+    if (!this.authService.isPrincipal()) {
+      userId = this.authService.getUser().id;
+    }
+
+    this.docsService.getAllDocs(userId).subscribe((results) => {
       results.forEach((doc) => {
         const d = doc;
         d.status = StatusUtil.valueOf(doc.status.toString());

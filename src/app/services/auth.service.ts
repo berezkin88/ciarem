@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-class User {
+class Credentials {
   constructor(private username_: string, private password_: string, private token_: string) { }
 
   get username() {
@@ -17,10 +17,14 @@ class User {
   }
 }
 
-let users = [
-  new User('tenant', 'tenant', 'fake-tenant-token'),
-  new User('secretary', 'secretary', 'fake-secretary-token'),
-  new User('manager', 'manager', 'fake-manager-token')
+class User {
+  constructor(public id: string, public role: string) { }
+}
+
+const credentials = [
+  new Credentials('tenant', 'tenant', 'MTAxOkJlc3QgU29sdXRpb24='),
+  new Credentials('secretary', 'secretary', 'OTk5OnNlY3JldGFyeQ=='),
+  new Credentials('manager', 'manager', 'MDAwOm1hbmFnZXI=')
 ];
 
 @Injectable({
@@ -31,7 +35,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(username: string, password: string): boolean {
-    const user = users.find(
+    const user = credentials.find(
       (x) => x.username === username && x.password === password
     );
 
@@ -57,10 +61,10 @@ export class AuthService {
     return true;
   }
 
-  isSecretary(): boolean {
-    const token = localStorage.getItem('token');
+  isPrincipal(): boolean {
+    const role = this.getUser().role;
 
-    if (token === users[1].token || token === users[2].token) {
+    if (role === 'secretary' || this.isManager()) {
       return true;
     }
 
@@ -68,12 +72,24 @@ export class AuthService {
   }
 
   isManager(): boolean {
-    const token = localStorage.getItem('token');
+    const role = this.getUser().role;
 
-    if (token === users[2].token) {
+    if (role === 'manager' || role === 'admin') {
       return true;
     }
 
     return false;
+  }
+
+  getUser(): User {
+    const token = localStorage.getItem('token');
+    const decoded = atob(token);
+    const split = decoded.split(':');
+
+    if (!split || split.length !== 2) {
+      return undefined;
+    }
+
+    return new User(split[0], split[1]);
   }
 }

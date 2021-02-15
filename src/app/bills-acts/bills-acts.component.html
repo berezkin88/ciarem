@@ -1,7 +1,7 @@
 <div class="row align-items-center justify-content-around">
   <tenant-office></tenant-office>
   <h4 class="component-title highlighted-text">Рахунки та акти</h4>
-  <select class="form-select" *ngIf="authService.isSecretary()">
+  <select class="form-select" *ngIf="authService.isPrincipal()">
     <option selected (click)="filter()">Усі орендарі</option>
     <option *ngFor="let tenant of tenant$ | async" (click)="filter(tenant.key)">
       {{ tenant.payload.val().name }}
@@ -11,8 +11,8 @@
 <div>
   <div class="new-docs">
     <button class="btn btn-orange text-icon-color">Новий рахунок</button>
-    <button class="btn btn-orange text-icon-color" *ngIf="authService.isSecretary()">Новий акт</button>
-    <button class="btn btn-orange text-icon-color" *ngIf="authService.isSecretary()">Акт звірки</button>
+    <button class="btn btn-orange text-icon-color" *ngIf="authService.isPrincipal()">Новий акт</button>
+    <button class="btn btn-orange text-icon-color" *ngIf="authService.isPrincipal()">Акт звірки</button>
   </div>
   <button type="button" class="btn btn-nav" (click)="scrollUp()">
     <div class="d-flex">
@@ -30,7 +30,7 @@
           <th scope="col" class="align-middle text-center">Рахунок</th>
           <th scope="col" class="align-middle text-center">Статус</th>
           <th scope="col" class="align-middle text-center">Акт</th>
-          <th scope="col" *ngIf="authService.isSecretary()"></th>
+          <th scope="col" *ngIf="authService.isPrincipal()"></th>
           <th scope="col" *ngIf="authService.isManager()"></th>
         </tr>
       </thead>
@@ -42,7 +42,7 @@
           <td class="align-middle text-center">{{ doc.enroll }}</td>
           <td class="align-middle text-center"><icon-provider [status]="doc.status"></icon-provider></td>
           <td class="align-middle text-center">{{ doc.act }}</td>
-          <td class="align-middle text-center" *ngIf="authService.isSecretary()">
+          <td class="align-middle text-center" *ngIf="authService.isPrincipal()">
             <button class="btn btn-orange text-icon-color m-0">Редагувати</button>
           </td>
           <td class="align-middle text-center" *ngIf="authService.isManager()">
