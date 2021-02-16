@@ -1,19 +1,19 @@
 import { TestBed } from '@angular/core/testing';
 import { AngularFireDatabase } from '@angular/fire/database';
 
-import { UserService } from './user.service';
+import { DocsService } from './docs.service';
 
-describe('UserService', () => {
-  let service: UserService;
+describe('DocsService', () => {
+  let service: DocsService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
         { provide: AngularFireDatabase, useClass: MockAngularFireDatabase },
-        UserService
+        DocsService
       ]
     });
-    service = TestBed.inject(UserService);
+    service = TestBed.inject(DocsService);
   });
 
   it('should be created', () => {

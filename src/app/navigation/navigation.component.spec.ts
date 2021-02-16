@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
 
 import { NavigationComponent } from './navigation.component';
 
@@ -8,7 +9,11 @@ describe('NavigationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavigationComponent ]
+      declarations: [ NavigationComponent ],
+      providers: [
+        { provide: Router, useClass: MockRouter },
+        NavigationComponent
+      ]
     })
     .compileComponents();
   });
@@ -23,3 +28,5 @@ describe('NavigationComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+class MockRouter {}
