@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { faMale, faUser, faLock } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from '../services/auth.service';
@@ -8,15 +8,13 @@ import { AuthService } from '../services/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.sass'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   maleIcon = faMale;
   userIcon = faUser;
   lockIcon = faLock;
   user: { username: string; password: string };
 
   constructor(private authService: AuthService, private router: Router) {}
-
-  ngOnInit(): void {}
 
   login(username: string, password: string): void {
     const result = this.authService.login(username, password);
