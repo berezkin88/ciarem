@@ -68,7 +68,7 @@ export class BillsActsComponent implements OnInit {
     });
   }
 
-  filter(value?: string): any {
+  filter(value?: string): void {
     this.filteredDocs = value
       ? this.docs.filter((doc) => doc.client === value)
       : this.docs;

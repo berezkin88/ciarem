@@ -1,4 +1,4 @@
-import { EMPTY, NEVER, Observable } from 'rxjs';
+import { EMPTY } from 'rxjs';
 import { AuthService } from './../services/auth.service';
 import { TenantsService } from './../services/tenants.service';
 import { DocsService } from './../services/docs.service';
@@ -9,18 +9,28 @@ import { BillsActsComponent } from './bills-acts.component';
 describe('BillsActsComponent', () => {
   let component: BillsActsComponent;
   let fixture: ComponentFixture<BillsActsComponent>;
-  let docsService: jasmine.SpyObj<DocsService>;
+  let mockDocsService: jasmine.SpyObj<DocsService>;
+  let mockTenantsService: jasmine.SpyObj<TenantsService>;
+  let mockAuthService: jasmine.SpyObj<AuthService>;
+
+  beforeEach(() => {
+    mockDocsService = jasmine.createSpyObj('DocsService', ['getAllDocs']);
+    mockTenantsService = jasmine.createSpyObj('TenantsService', ['getAllTenants']);
+    mockAuthService = jasmine.createSpyObj('AuthService', ['isPrincipal', 'isManager']);
+
+    mockDocsService.getAllDocs.withArgs(undefined).and.returnValue(EMPTY);
+    mockTenantsService.getAllTenants.and.returnValue(EMPTY);
+    mockAuthService.isPrincipal.and.returnValue(true);
+    mockAuthService.isManager.and.stub();
+  });
 
   beforeEach(async () => {
-    docsService = jasmine.createSpyObj('DocsService', ['getAllDocs']);
-    docsService.getAllDocs.withArgs(undefined).and.returnValue(EMPTY);
-
     await TestBed.configureTestingModule({
       declarations: [ BillsActsComponent ],
       providers: [
-        { provide: DocsService, useValue: docsService },
-        { provide: TenantsService, useClass: MockTenantService },
-        { provide: AuthService, useClass: MockAuthService },
+        { provide: DocsService, useValue: mockDocsService },
+        { provide: TenantsService, useValue: mockTenantsService },
+        { provide: AuthService, useValue: mockAuthService },
         BillsActsComponent
       ]
     })
@@ -38,30 +48,9 @@ describe('BillsActsComponent', () => {
   });
 
   it ('should call services', () => {
-    docsService.getAllDocs.withArgs(undefined).and.returnValue(EMPTY);
-    component.ngOnInit();
-    expect(docsService.getAllDocs).toHaveBeenCalled();
+    expect(mockDocsService.getAllDocs).toHaveBeenCalled();
+    expect(mockTenantsService.getAllTenants).toHaveBeenCalled();
+    expect(mockAuthService.isPrincipal).toHaveBeenCalled();
   });
 });
 
-class MockDocsService {
-  getAllDocs(): Observable<any> {
-    return EMPTY;
-  }
-}
-
-class MockTenantService {
-  getAllTenants(): Observable<any> {
-    return EMPTY;
-  }
-}
-
-class MockAuthService {
-  isPrincipal(): boolean {
-    return true;
-  }
-
-  isManager(): boolean {
-    return true;
-  }
-}
