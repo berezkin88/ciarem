@@ -11,8 +11,7 @@ describe('NavigationComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ NavigationComponent ],
       providers: [
-        { provide: Router, useClass: MockRouter },
-        NavigationComponent
+        { provide: Router, useClass: MockRouter }
       ]
     })
     .compileComponents();

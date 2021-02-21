@@ -46,4 +46,3 @@ describe('LoginComponent', () => {
     expect(mockRouter.navigate).toHaveBeenCalled();
   });
 });
-
