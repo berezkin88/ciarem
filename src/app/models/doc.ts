@@ -1,7 +1,7 @@
 import { Status } from './status';
 
 export interface Doc {
-  date: Date;
+  date: string;
   serial: number;
   sum: number;
   enroll: string;

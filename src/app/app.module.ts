@@ -24,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IconProviderComponent } from './icon-provider/icon-provider.component';
 import { TenantOfficeComponent } from './tenant-office/tenant-office.component';
+import { UaMonthPipe } from './ua-month.pipe';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { TenantOfficeComponent } from './tenant-office/tenant-office.component';
     ProfileComponent,
     ClientsComponent,
     IconProviderComponent,
-    TenantOfficeComponent
+    TenantOfficeComponent,
+    UaMonthPipe
   ],
   imports: [
     BrowserModule,
