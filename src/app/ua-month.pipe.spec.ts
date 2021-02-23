@@ -5,7 +5,7 @@ describe('UaMonthPipe', () => {
 
   beforeEach(() => {
     pipe = new UaMonthPipe();
-  })
+  });
 
   it('create an instance', () => {
     expect(pipe).toBeTruthy();

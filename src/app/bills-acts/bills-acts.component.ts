@@ -22,6 +22,9 @@ export class BillsActsComponent implements OnInit {
   filteredDocs: Doc[] = [] as Doc[];
   tenant$: Observable<SnapshotAction<Tenant>[]>;
 
+  maxYear: number;
+  minYear: number;
+
   constructor(
     private docsService: DocsService,
     private tenantsService: TenantsService,
@@ -47,6 +50,7 @@ export class BillsActsComponent implements OnInit {
         this.docs.push(d);
         this.filteredDocs.push(d);
       });
+      this.setYears();
     });
   }
 
@@ -72,5 +76,14 @@ export class BillsActsComponent implements OnInit {
     this.filteredDocs = value
       ? this.docs.filter((doc) => doc.client === value)
       : this.docs;
+  }
+
+  private setYears(): void {
+    this.minYear = this.filteredDocs
+      .map((d) => new Date(d.date).getFullYear())
+      .reduce((a, b) => Math.min(a, b));
+    this.maxYear = this.filteredDocs
+      .map((d) => new Date(d.date).getFullYear())
+      .reduce((a, b) => Math.max(a, b));
   }
 }
