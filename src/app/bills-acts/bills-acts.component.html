@@ -35,7 +35,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let doc of filteredDocs">
+        <tr *ngFor="let doc of filteredDocs" #raw>
           <td class="align-middle text-center">{{ doc.date | uaMonth }}</td>
           <td class="align-middle text-center">{{ doc.serial }}</td>
           <td class="align-middle text-center">{{ doc.sum | currency:'':'' }}</td>
@@ -46,7 +46,7 @@
             <button class="btn btn-orange text-icon-color m-0">Редагувати</button>
           </td>
           <td class="align-middle text-center" *ngIf="authService.isManager()">
-            <button class="btn btn-no-indent">
+            <button class="btn btn-no-indent" (click)="raw.hidden = true">
               <fa-icon [icon]="delete" size="3x" class="icon-red mx-3"></fa-icon>
             </button>
           </td>

@@ -76,6 +76,7 @@ export class BillsActsComponent implements OnInit {
     this.filteredDocs = value
       ? this.docs.filter((doc) => doc.client === value)
       : this.docs;
+    this.setYears();
   }
 
   private setYears(): void {
