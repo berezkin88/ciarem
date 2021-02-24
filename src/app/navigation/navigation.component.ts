@@ -1,5 +1,7 @@
+import { TenantsService } from './../services/tenants.service';
+import { AuthService } from './../services/auth.service';
 import { Router } from '@angular/router';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   faUserCircle,
   faClipboardList,
@@ -13,14 +15,34 @@ import {
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.sass'],
 })
-export class NavigationComponent {
+export class NavigationComponent implements OnInit {
   profile = faUserCircle;
   documents = faClipboardList;
   calendar = faCalendarDay;
   invoices = faFileInvoiceDollar;
   questions = faQuestionCircle;
 
-  constructor(private router: Router) {}
+  loggedUser: string;
+
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private tenantService: TenantsService
+  ) {}
+
+  ngOnInit(): void {
+    const user = this.authService.getUser();
+    const id = user.id;
+
+    if (id === '000' || id === '999') {
+      this.loggedUser = user.role;
+      return;
+    }
+
+    this.tenantService
+      .getTenantById(id)
+      .subscribe(t => this.loggedUser = t.name);
+  }
 
   getRoute(): string {
     return this.router.url;

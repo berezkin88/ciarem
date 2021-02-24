@@ -22,7 +22,7 @@ class User {
 }
 
 const credentials = [
-  new Credentials('tenant', 'tenant', 'MTAxOkJlc3QgU29sdXRpb24='),
+  new Credentials('tenant', 'tenant', 'MTAxOkJlc3QgU29sdXRpb25z'),
   new Credentials('secretary', 'secretary', 'OTk5OnNlY3JldGFyeQ=='),
   new Credentials('manager', 'manager', 'MDAwOm1hbmFnZXI=')
 ];

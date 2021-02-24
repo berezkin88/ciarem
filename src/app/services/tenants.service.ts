@@ -13,4 +13,8 @@ export class TenantsService {
   getAllTenants(): Observable<SnapshotAction<Tenant>[]> {
     return this.db.list<Tenant>('/tenants/').snapshotChanges();
   }
+
+  getTenantById(id: string): Observable<Tenant> {
+    return this.db.object<Tenant>(`/tenants/${id}`).valueChanges();
+  }
 }
