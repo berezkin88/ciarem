@@ -10,9 +10,9 @@
 </div>
 <div>
   <div class="new-docs">
-    <button class="btn btn-orange text-icon-color">Новий рахунок</button>
+    <button class="btn btn-orange text-icon-color" *ngIf="authService.isPrincipal()">Новий рахунок</button>
     <button class="btn btn-orange text-icon-color" *ngIf="authService.isPrincipal()">Новий акт</button>
-    <button class="btn btn-orange text-icon-color" *ngIf="authService.isPrincipal()">Акт звірки</button>
+    <button class="btn btn-orange text-icon-color" routerLink="/act-reconciliation">Акт звірки</button>
   </div>
   <button type="button" class="btn btn-nav" (click)="scrollUp()">
     <div class="d-flex">

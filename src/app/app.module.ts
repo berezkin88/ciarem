@@ -25,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IconProviderComponent } from './icon-provider/icon-provider.component';
 import { TenantOfficeComponent } from './tenant-office/tenant-office.component';
 import { UaMonthPipe } from './ua-month.pipe';
+import { ActReconciliationComponent } from './act-reconciliation/act-reconciliation.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { UaMonthPipe } from './ua-month.pipe';
     ClientsComponent,
     IconProviderComponent,
     TenantOfficeComponent,
-    UaMonthPipe
+    UaMonthPipe,
+    ActReconciliationComponent
   ],
   imports: [
     BrowserModule,
