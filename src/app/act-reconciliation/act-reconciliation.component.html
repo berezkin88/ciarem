@@ -1,20 +1,22 @@
-
-<div class="row align-items-center mx-1" style="margin-top: 6px;">
+<div class="row align-items-center mx-1">
   <tenant-office class="col"></tenant-office>
   <h4 class="component-title highlighted-text col pt-2 text-center">Запит на акт звірки</h4>
   <div class="col"></div>
 </div>
-<div class="table-content container">
-  <table class="table table-light table-striped">
-    <tbody>
+<div class="table-content">
+  <table class="table table-light table-striped table-bordered">
+    <tbody class="text-center">
       <tr>
         <td>Дата "з"</td>
-        <td></td>
+        <td><input type="date" name="dateFrom" id="dateFrom" [(ngModel)]="dateFrom"></td>
       </tr>
       <tr>
         <td>Дата "до"</td>
-        <td></td>
+        <td><input type="date" name="dateTo" id="dateFrom" [(ngModel)]="dateTo"></td>
       </tr>
     </tbody>
   </table>
+  <button class="btn btn-orange text-icon-color mt-3 float-right btn-wide" (click)="submitRequest()">
+    Надіслати запит на акт звірки
+  </button>
 </div>
