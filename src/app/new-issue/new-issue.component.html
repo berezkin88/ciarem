@@ -5,7 +5,7 @@
   <div class="col"></div>
 </div>
 <div class="container w-75">
-  <form id="issueForm">
+  <form id="issueForm" #f=ngForm (ngSubmit)="submit(f)">
     <table class="table table-light table-striped table-bordered">
       <tbody>
         <tr>
@@ -13,7 +13,7 @@
             <label for="issueNumber">Номер звернення:</label>
           </td>
           <td class="text-center col-9">
-            <input type="text" class="text-center" name="issueNumber" id="issueNumber" value="308" readonly>
+            <input type="text" class="text-center" name="issueNumber" id="issueNumber" [(ngModel)]="issueNumber" readonly>
           </td>
         </tr>
         <tr>
@@ -21,7 +21,7 @@
             <label for="issueTopic">Тема:</label>
           </td>
           <td class="text-center col-9">
-            <input type="text" name="issueTopic" id="issueTopic" class="w-90 border-black-radius" placeholder="Приклад: не працює освітлення">
+            <input type="text" ngModel name="issueTopic" id="issueTopic" class="w-90 border-black-radius" placeholder="Приклад: не працює освітлення">
           </td>
         </tr>
       </tbody>
@@ -32,7 +32,7 @@
           <label for="issueMessage" class="pt-1">Повідомлення:</label>
         </td>
         <td class="text-center col-9 borderless">
-          <textarea type="text" name="issueMessage" id="issueMessage" class="w-90 border-black-radius height-7" form="issueForm"></textarea>
+          <textarea type="text" ngModel name="issueMessage" id="issueMessage" class="w-90 border-black-radius height-7" form="issueForm"></textarea>
         </td>
       </tr>
       <tr>
