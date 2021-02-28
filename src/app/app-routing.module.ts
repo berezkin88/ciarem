@@ -1,3 +1,4 @@
+import { NewIssueComponent } from './new-issue/new-issue.component';
 import { ActReconciliationComponent } from './act-reconciliation/act-reconciliation.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ClientsComponent } from './clients/clients.component';
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'bills-schedule', component: BillsScheduleComponent, canActivate: [AuthGuardService] },
   { path: 'clients', component: ClientsComponent, canActivate: [AuthGuardService] },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
-  { path: 'submissions', component: SubmissionsComponent, canActivate: [AuthGuardService] }
+  { path: 'issues', component: SubmissionsComponent, canActivate: [AuthGuardService] },
+  { path: 'issues/new', component: NewIssueComponent, canActivate: [AuthGuardService] }
 ];
 
 @NgModule({

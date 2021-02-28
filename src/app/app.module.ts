@@ -26,6 +26,7 @@ import { IconProviderComponent } from './icon-provider/icon-provider.component';
 import { TenantOfficeComponent } from './tenant-office/tenant-office.component';
 import { UaMonthPipe } from './ua-month.pipe';
 import { ActReconciliationComponent } from './act-reconciliation/act-reconciliation.component';
+import { NewIssueComponent } from './new-issue/new-issue.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ActReconciliationComponent } from './act-reconciliation/act-reconciliat
     IconProviderComponent,
     TenantOfficeComponent,
     UaMonthPipe,
-    ActReconciliationComponent
+    ActReconciliationComponent,
+    NewIssueComponent
   ],
   imports: [
     BrowserModule,

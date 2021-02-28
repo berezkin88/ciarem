@@ -1,0 +1,48 @@
+
+<div class="row align-items-center mx-1">
+  <tenant-office class="col"></tenant-office>
+  <h4 class="component-title highlighted-text col pt-2 text-center">Нове звернення</h4>
+  <div class="col"></div>
+</div>
+<div class="container w-75">
+  <form id="issueForm">
+    <table class="table table-light table-striped table-bordered">
+      <tbody>
+        <tr>
+          <td class="text-center col-3">
+            <label for="issueNumber">Номер звернення:</label>
+          </td>
+          <td class="text-center col-9">
+            <input type="text" class="text-center" name="issueNumber" id="issueNumber" value="308" readonly>
+          </td>
+        </tr>
+        <tr>
+          <td class="text-center col-3">
+            <label for="issueTopic">Тема:</label>
+          </td>
+          <td class="text-center col-9">
+            <input type="text" name="issueTopic" id="issueTopic" class="w-90 border-black-radius" placeholder="Приклад: не працює освітлення">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="table custom-table">
+      <tr>
+        <td class="text-center col-3 borderless">
+          <label for="issueMessage" class="pt-1">Повідомлення:</label>
+        </td>
+        <td class="text-center col-9 borderless">
+          <textarea type="text" name="issueMessage" id="issueMessage" class="w-90 border-black-radius height-7" form="issueForm"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td class="text-center col-3 borderless"></td>
+        <td class="col-9 borderless">
+          <div class="w-90 mx-auto">
+            <button class="btn btn-orange text-icon-color px-4 float-right">Надіслати звернення</button>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
