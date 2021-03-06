@@ -13,7 +13,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { BillsActsComponent } from './bills-acts/bills-acts.component';
 import { BillsScheduleComponent } from './bills-schedule/bills-schedule.component';
 import { AgreementsComponent } from './agreements/agreements.component';
-import { SubmissionsComponent } from './submissions/submissions.component';
+import { IssuesComponent } from './issues/issues.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ClientsComponent } from './clients/clients.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -36,7 +36,7 @@ import { NewIssueComponent } from './new-issue/new-issue.component';
     BillsActsComponent,
     BillsScheduleComponent,
     AgreementsComponent,
-    SubmissionsComponent,
+    IssuesComponent,
     ProfileComponent,
     ClientsComponent,
     IconProviderComponent,
