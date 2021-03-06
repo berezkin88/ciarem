@@ -5,12 +5,12 @@
   <div class="col"></div>
 </div>
 <div class="content">
-  <table class="table table-light table-striped table-bordered w-50">
+  <table class="table table-light table-striped table-bordered">
     <thead>
       <tr>
         <th class="text-center">Назва підприємства</th>
         <th class="text-center">
-          ТОВ "BEST SOLUTIONS"
+          {{ tenant.name }}
         </th>
       </tr>
     </thead>
@@ -18,43 +18,45 @@
       <tr>
         <td class="text-center">Керівник</td>
         <td class="text-center">
-          Карпенко Петро
+          {{ tenant.ceo }}
         </td>
       </tr>
       <tr>
         <td class="text-center">Телефон керівника</td>
         <td class="text-center">
-          +380504506889
+          {{ tenant.ceoPhoneNum }}
         </td>
       </tr>
       <tr>
         <td class="text-center">ЄДРПОУ</td>
         <td class="text-center">
-          570234220
+          {{ tenant.code }}
         </td>
       </tr>
       <tr>
         <td class="text-center">Контактна персона</td>
         <td class="text-center">
-          Мальована Марина
+          {{ tenant.representative }}
         </td>
       </tr>
       <tr>
         <td class="text-center">Телефон</td>
         <td class="text-center">
-          +380663407592
+          {{ tenant.phoneNum }}
         </td>
       </tr>
       <tr>
         <td class="text-center">email</td>
         <td class="text-center">
-          bestsolutions@gmail.com
+          {{ tenant.email }}
         </td>
       </tr>
       <tr>
         <td class="text-center">Виписка</td>
         <td class="text-center">
-          <a href="#">Виписка із держреєстру 570234220.jpg</a>
+          <a href="#">
+            {{ tenant.snapshotStateRepo }}
+          </a>
         </td>
       </tr>
     </tbody>
