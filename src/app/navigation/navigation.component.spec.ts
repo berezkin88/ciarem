@@ -46,7 +46,16 @@ describe('NavigationComponent', () => {
   });
 
   it('laggedIn entity should be test', () => {
-    const spyObj = mockTenantsService.getTenantById.withArgs('101').and.returnValue(of({ name: 'test' }));
+    const spyObj = mockTenantsService.getTenantById.withArgs('101').and.returnValue(of({
+      ceo : '',
+      ceoPhoneNum : '',
+      code : 0,
+      email : '',
+      name : 'test',
+      phoneNum : '',
+      representative : '',
+      snapshotStateRepo : ''
+    }));
     mockAuthService.getUser.and.returnValue({ id: '101', role: 'foo'});
 
     component.ngOnInit();

@@ -41,7 +41,17 @@ describe('TenantsService', () => {
     ]);
 
     mockDB.object.and.returnValue(mockFireObject);
-    mockFireObject.valueChanges.and.returnValue(of({ name: 'foo' }));
+    mockFireObject.valueChanges.and.returnValue(of({
+      ceo : '',
+      ceoPhoneNum : '',
+      code : 0,
+      email : '',
+      name : 'foo',
+      phoneNum : '',
+      representative : '',
+      snapshotStateRepo : ''
+    }));
+
     service.getTenantById('101').subscribe((v) => expect(v.name).toBe('foo'));
   });
 });
