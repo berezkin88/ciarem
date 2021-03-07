@@ -20,12 +20,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td class="align-middle text-center">308</td>
-          <td class="align-middle text-center">13.09.2020</td>
-          <td class="align-middle text-center">Корпус "Ж". Тимчасові незручності</td>
-          <td class="align-middle text-center">Секретаріат БЦ "Армаріс"</td>
-          <td class="align-middle text-center"><icon-provider [status]=""></icon-provider></td>
+        <tr *ngFor="let issue of issues" >
+          <td class="align-middle text-center">{{ issue.id }}</td>
+          <td class="align-middle text-center">{{ issue.date | date: 'dd.MM.yyyy'}}</td>
+          <td class="align-middle text-center">{{ issue.topic }}</td>
+          <td class="align-middle text-center">{{ issue.initiator }}</td>
+          <td class="align-middle text-center"><icon-provider [status]="issue.status"></icon-provider></td>
         </tr>
       </tbody>
     </table>
