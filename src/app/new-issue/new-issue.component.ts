@@ -1,4 +1,7 @@
+import { IssuesService } from './../services/issues.service';
+import { Issue } from './../models/issue';
 import { Component } from '@angular/core';
+import { Status } from '../models/status';
 
 @Component({
   selector: 'new-issue',
@@ -8,7 +11,7 @@ import { Component } from '@angular/core';
 export class NewIssueComponent {
   issueNumber: string;
 
-  constructor() {
+  constructor(private issuesService: IssuesService) {
     this.issueNumber = this.getRandom();
    }
 
