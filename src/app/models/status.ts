@@ -1,4 +1,6 @@
-
 export enum Status {
-  COMPLETE, PENDING, FAILED, UNKNOWN
+  COMPLETE = 'complete',
+  PENDING = 'pending',
+  FAILED = 'failed',
+  UNKNOWN = 'unknown',
 }

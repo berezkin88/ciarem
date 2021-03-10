@@ -45,10 +45,8 @@ export class BillsActsComponent implements OnInit {
 
     this.docsService.getAllDocs(userId).subscribe((results) => {
       results.forEach((doc) => {
-        const d = doc;
-        d.status = StatusUtil.valueOf(doc.status.toString());
-        this.docs.push(d);
-        this.filteredDocs.push(d);
+        this.docs.push(doc);
+        this.filteredDocs.push(doc);
       });
       this.setYears();
     });

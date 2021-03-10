@@ -1,4 +1,3 @@
-import { StatusUtil } from './../utilities/status-util';
 import { IssuesService } from './../services/issues.service';
 import { Issue } from './../models/issue';
 import { Component, OnInit } from '@angular/core';
@@ -18,7 +17,6 @@ export class IssuesComponent implements OnInit {
       issues.forEach((issue) => {
         const is = issue.payload.val();
         is.id = (issue.key as unknown) as number | 0;
-        is.status = StatusUtil.valueOf(issue.payload.val().status.toString());
         this.issues.push(is);
       })
     );
