@@ -1,15 +1,18 @@
 import { AuthService } from './../services/auth.service';
 import { Tenant } from './../models/tenant';
 import { TenantsService } from './../services/tenants.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.sass'],
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent implements OnInit, OnDestroy {
   tenant: Tenant;
+
+  subscription$: Subscription;
 
   constructor(
     private tenantsService: TenantsService,
@@ -19,6 +22,10 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     const id = this.authService.getUser().id;
 
-    this.tenantsService.getTenantById(id).subscribe((t) => (this.tenant = t));
+    this.subscription$ = this.tenantsService.getTenantById(id).subscribe((t) => (this.tenant = t));
+  }
+
+  ngOnDestroy(): void {
+    this.subscription$.unsubscribe();
   }
 }

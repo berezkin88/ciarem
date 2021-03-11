@@ -1,7 +1,8 @@
+import { Subscription } from 'rxjs';
 import { TenantsService } from './../services/tenants.service';
 import { AuthService } from './../services/auth.service';
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import {
   faUserCircle,
   faClipboardList,
@@ -15,12 +16,14 @@ import {
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.sass'],
 })
-export class NavigationComponent implements OnInit {
+export class NavigationComponent implements OnInit, OnDestroy {
   profile = faUserCircle;
   documents = faClipboardList;
   calendar = faCalendarDay;
   invoices = faFileInvoiceDollar;
   questions = faQuestionCircle;
+
+  subscription$: Subscription;
 
   loggedUser: string;
 
@@ -39,9 +42,13 @@ export class NavigationComponent implements OnInit {
       return;
     }
 
-    this.tenantService
+    this.subscription$ = this.tenantService
       .getTenantById(id)
       .subscribe(t => this.loggedUser = t.name);
+  }
+
+  ngOnDestroy(): void {
+    this.subscription$.unsubscribe();
   }
 
   getRoute(): string {

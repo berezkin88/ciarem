@@ -2,25 +2,25 @@ import { AuthService } from './../services/auth.service';
 import { Doc } from './../models/doc';
 import { Tenant } from './../models/tenant';
 import { TenantsService } from '../services/tenants.service';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { DocsService } from '../services/docs.service';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { SnapshotAction } from '@angular/fire/database';
-import { StatusUtil } from '../utilities/status-util';
 
 @Component({
   selector: 'app-bills-acts',
   templateUrl: './bills-acts.component.html',
   styleUrls: ['./bills-acts.component.sass'],
 })
-export class BillsActsComponent implements OnInit {
+export class BillsActsComponent implements OnInit, OnDestroy {
   delete = faTimes;
   @ViewChild('scrollTable') scrollTable: ElementRef;
 
   docs: Doc[] = [] as Doc[];
   filteredDocs: Doc[] = [] as Doc[];
   tenant$: Observable<SnapshotAction<Tenant>[]>;
+  subscription$: Subscription;
 
   maxYear: number;
   minYear: number;
@@ -36,6 +36,10 @@ export class BillsActsComponent implements OnInit {
     this.tenant$ = this.tenantsService.getAllTenants();
   }
 
+  ngOnDestroy(): void {
+    this.subscription$.unsubscribe();
+  }
+
   private initDocs(): void {
     let userId: string;
 
@@ -43,13 +47,15 @@ export class BillsActsComponent implements OnInit {
       userId = this.authService.getUser().id;
     }
 
-    this.docsService.getAllDocs(userId).subscribe((results) => {
-      results.forEach((doc) => {
-        this.docs.push(doc);
-        this.filteredDocs.push(doc);
+    this.subscription$ = this.docsService
+      .getAllDocs(userId)
+      .subscribe((results) => {
+        results.forEach((doc) => {
+          this.docs.push(doc);
+          this.filteredDocs.push(doc);
+        });
+        this.setYears();
       });
-      this.setYears();
-    });
   }
 
   scrollUp(): void {
