@@ -1,3 +1,5 @@
+import { AgreementsService } from './../services/agreements.service';
+import { EMPTY } from 'rxjs';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AgreementsComponent } from './agreements.component';
@@ -8,7 +10,10 @@ describe('AgreementsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AgreementsComponent ]
+      declarations: [ AgreementsComponent ],
+      providers: [
+        { provide: AgreementsService, useClass: MockAgreementsService }
+      ]
     })
     .compileComponents();
   });
@@ -23,3 +28,9 @@ describe('AgreementsComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+class MockAgreementsService {
+  getAll(): any {
+    return EMPTY;
+  }
+}
