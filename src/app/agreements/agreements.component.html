@@ -18,8 +18,8 @@
       <tbody>
         <tr *ngFor="let agreement of agreement$ | async">
           <td class="align-middle text-center">{{ agreement.key }}</td>
-          <td class="align-middle text-center">{{ agreement.payload.val().date }}</td>
-          <td class="align-middle text-center">{{ agreement.payload.val().validUntil }}</td>
+          <td class="align-middle text-center">{{ agreement.payload.val().date | date: 'dd.MM.yyyy' }}</td>
+          <td class="align-middle text-center">{{ agreement.payload.val().validUntil | date: 'dd.MM.yyyy' }}</td>
           <td class="align-middle text-center">
             <a href="#">
               {{ agreement.payload.val().link }}

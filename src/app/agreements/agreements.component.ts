@@ -1,3 +1,4 @@
+import { Agreement } from './../models/agreement';
 import { Observable } from 'rxjs';
 import { AgreementsService } from './../services/agreements.service';
 import { Component, OnInit } from '@angular/core';

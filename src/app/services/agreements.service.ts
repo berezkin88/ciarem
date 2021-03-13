@@ -1,3 +1,4 @@
+import { Agreement } from './../models/agreement';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, SnapshotAction } from '@angular/fire/database';
 import { Observable } from 'rxjs';
@@ -9,7 +10,7 @@ export class AgreementsService {
 
   constructor(private db: AngularFireDatabase) { }
 
-  getAll(): Observable<SnapshotAction<any>[]> {
-    return this.db.list('/agreements/').snapshotChanges();
+  getAll(): Observable<SnapshotAction<Agreement>[]> {
+    return this.db.list<Agreement>('/agreements/').snapshotChanges();
   }
 }
