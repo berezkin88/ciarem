@@ -27,6 +27,8 @@ import { TenantOfficeComponent } from './tenant-office/tenant-office.component';
 import { UaMonthPipe } from './ua-month.pipe';
 import { ActReconciliationComponent } from './act-reconciliation/act-reconciliation.component';
 import { NewIssueComponent } from './new-issue/new-issue.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
+import { BarChartComponent } from './bar-chart/bar-chart.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { NewIssueComponent } from './new-issue/new-issue.component';
     TenantOfficeComponent,
     UaMonthPipe,
     ActReconciliationComponent,
-    NewIssueComponent
+    NewIssueComponent,
+    BarChartComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +58,8 @@ import { NewIssueComponent } from './new-issue/new-issue.component';
     HttpClientModule,
     BrowserAnimationsModule,
     MatTableModule,
-    CommonModule
+    CommonModule,
+    NgApexchartsModule
   ],
   providers: [
     UserService,
