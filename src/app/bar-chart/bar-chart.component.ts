@@ -1,3 +1,4 @@
+import { ChartData } from './../models/chartData';
 import { Status } from './../models/status';
 import { Input, ViewChild } from '@angular/core';
 import { Component } from '@angular/core';
@@ -19,12 +20,12 @@ export type ChartOptions = {
 };
 
 const fakeData = [
-  { status: Status.COMPLETE},
-  { status: Status.FAILED},
-  { status: Status.PENDING},
-  { status: Status.UNKNOWN},
-  { status: Status.UNKNOWN},
-  { status: Status.UNKNOWN}
+  { status: Status.COMPLETE },
+  { status: Status.FAILED },
+  { status: Status.PENDING },
+  { status: Status.UNKNOWN },
+  { status: Status.UNKNOWN },
+  { status: Status.UNKNOWN }
 ];
 
 @Component({
@@ -35,7 +36,7 @@ const fakeData = [
 export class BarChartComponent {
   @ViewChild('chart') chart: ChartComponent;
   public chartOptions: Partial<any>;
-  @Input('data') data = fakeData;
+  @Input('data') data: ChartData;
 
   constructor() {
     this.chartOptions = {
@@ -43,23 +44,23 @@ export class BarChartComponent {
         {
           name: 'Послуги',
           data: [
-            { x: '01', y: 22000, fillColor: this.provideColor(this.data[0].status)},
-            { x: '02', y: 22000, fillColor: this.provideColor(this.data[1].status)},
-            { x: '03', y: 22000, fillColor: this.provideColor(this.data[2].status)},
-            { x: '04', y: 22000, fillColor: this.provideColor(this.data[3].status)},
-            { x: '05', y: 22000, fillColor: this.provideColor(this.data[4].status)},
-            { x: '06', y: 22000, fillColor: this.provideColor(this.data[5].status)},
+            { x: '01', y: 22000, fillColor: this.provideColor(fakeData[0].status)},
+            { x: '02', y: 22000, fillColor: this.provideColor(fakeData[1].status)},
+            { x: '03', y: 22000, fillColor: this.provideColor(fakeData[2].status)},
+            { x: '04', y: 22000, fillColor: this.provideColor(fakeData[3].status)},
+            { x: '05', y: 22000, fillColor: this.provideColor(fakeData[4].status)},
+            { x: '06', y: 22000, fillColor: this.provideColor(fakeData[5].status)},
           ]
         },
         {
           name: 'Оренда',
           data: [
-            { x: '01', y: 100000, fillColor: this.provideColor(this.data[0].status)},
-            { x: '02', y: 100000, fillColor: this.provideColor(this.data[1].status)},
-            { x: '03', y: 100000, fillColor: this.provideColor(this.data[2].status)},
-            { x: '04', y: 100000, fillColor: this.provideColor(this.data[3].status)},
-            { x: '05', y: 100000, fillColor: this.provideColor(this.data[4].status)},
-            { x: '06', y: 100000, fillColor: this.provideColor(this.data[5].status)},
+            { x: '01', y: 100000, fillColor: this.provideColor(fakeData[0].status)},
+            { x: '02', y: 100000, fillColor: this.provideColor(fakeData[1].status)},
+            { x: '03', y: 100000, fillColor: this.provideColor(fakeData[2].status)},
+            { x: '04', y: 100000, fillColor: this.provideColor(fakeData[3].status)},
+            { x: '05', y: 100000, fillColor: this.provideColor(fakeData[4].status)},
+            { x: '06', y: 100000, fillColor: this.provideColor(fakeData[5].status)},
           ]
         }
       ],
