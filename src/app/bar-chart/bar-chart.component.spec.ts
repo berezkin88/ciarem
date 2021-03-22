@@ -1,3 +1,4 @@
+import { ChartData } from './../models/chartData';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BarChartComponent } from './bar-chart.component';
@@ -16,6 +17,7 @@ describe('BarChartComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(BarChartComponent);
     component = fixture.componentInstance;
+    component.data = {} as ChartData;
     fixture.detectChanges();
   });
 

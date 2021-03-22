@@ -1,3 +1,5 @@
+import { ChartDataService } from './../services/chart-data.service';
+import { ChartData } from './../models/chartData';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bills-schedule.component.sass']
 })
 export class BillsScheduleComponent implements OnInit {
+  chartData: ChartData;
 
-  constructor() { }
+  constructor(private chartDataService: ChartDataService) { }
 
   ngOnInit(): void {
+    this.chartData = this.chartDataService.getChartData();
   }
 
 }

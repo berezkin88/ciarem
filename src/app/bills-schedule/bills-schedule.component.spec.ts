@@ -1,3 +1,4 @@
+import { ChartDataService } from './../services/chart-data.service';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BillsScheduleComponent } from './bills-schedule.component';
@@ -8,7 +9,10 @@ describe('BillsScheduleComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BillsScheduleComponent ]
+      declarations: [ BillsScheduleComponent ],
+      providers: [
+        { provide: ChartDataService, useClass: MockChartDataService}
+      ]
     })
     .compileComponents();
   });
@@ -23,3 +27,7 @@ describe('BillsScheduleComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+class MockChartDataService {
+  getChartData(): any { }
+}

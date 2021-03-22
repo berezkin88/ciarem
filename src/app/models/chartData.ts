@@ -1,8 +1,8 @@
 import { Status } from './status';
 
 interface DataPoint {
-  xaxes: string;
-  yaxis: number;
+  x: string;
+  y: number;
   fillColor: string;
 }
 
@@ -28,8 +28,8 @@ export class ChartData {
 
     for (const input of inputs) {
       const dataPoint = {
-        xaxes: input.month,
-        yaxis: input.sum,
+        x: input.month,
+        y: input.sum,
         fillColor: this.provideColor(input.status),
       };
 
@@ -45,7 +45,7 @@ export class ChartData {
     this.populateSet(set, services);
     this.populateSet(set, rents);
 
-    return Array.from(set.values());
+    return Array.from(set.values()).sort();
   }
 
   private populateSet(set: Set<string>, array: InputData[]): void {

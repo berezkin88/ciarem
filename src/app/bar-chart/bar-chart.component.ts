@@ -1,67 +1,43 @@
 import { ChartData } from './../models/chartData';
-import { Status } from './../models/status';
-import { Input, ViewChild } from '@angular/core';
+import { Input, ViewChild, OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import {
   ChartComponent,
   ApexAxisChartSeries,
   ApexChart,
   ApexXAxis,
-  ApexTitleSubtitle,
-  ApexLegend
+  ApexDataLabels
 } from 'ng-apexcharts';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
   chart: ApexChart;
   xaxis: ApexXAxis;
-  title: ApexTitleSubtitle;
-  legend: ApexLegend;
+  dataLabels: ApexDataLabels;
 };
-
-const fakeData = [
-  { status: Status.COMPLETE },
-  { status: Status.FAILED },
-  { status: Status.PENDING },
-  { status: Status.UNKNOWN },
-  { status: Status.UNKNOWN },
-  { status: Status.UNKNOWN }
-];
 
 @Component({
   selector: 'bar-chart',
   templateUrl: './bar-chart.component.html',
   styleUrls: ['./bar-chart.component.sass'],
 })
-export class BarChartComponent {
+export class BarChartComponent implements OnInit {
   @ViewChild('chart') chart: ChartComponent;
   public chartOptions: Partial<any>;
   @Input('data') data: ChartData;
 
-  constructor() {
+  constructor() { }
+
+  ngOnInit(): void {
     this.chartOptions = {
       series: [
         {
           name: 'Послуги',
-          data: [
-            { x: '01', y: 22000, fillColor: this.provideColor(fakeData[0].status)},
-            { x: '02', y: 22000, fillColor: this.provideColor(fakeData[1].status)},
-            { x: '03', y: 22000, fillColor: this.provideColor(fakeData[2].status)},
-            { x: '04', y: 22000, fillColor: this.provideColor(fakeData[3].status)},
-            { x: '05', y: 22000, fillColor: this.provideColor(fakeData[4].status)},
-            { x: '06', y: 22000, fillColor: this.provideColor(fakeData[5].status)},
-          ]
+          data: this.data.services
         },
         {
           name: 'Оренда',
-          data: [
-            { x: '01', y: 100000, fillColor: this.provideColor(fakeData[0].status)},
-            { x: '02', y: 100000, fillColor: this.provideColor(fakeData[1].status)},
-            { x: '03', y: 100000, fillColor: this.provideColor(fakeData[2].status)},
-            { x: '04', y: 100000, fillColor: this.provideColor(fakeData[3].status)},
-            { x: '05', y: 100000, fillColor: this.provideColor(fakeData[4].status)},
-            { x: '06', y: 100000, fillColor: this.provideColor(fakeData[5].status)},
-          ]
+          data: this.data.rents
         }
       ],
       chart: {
@@ -69,36 +45,18 @@ export class BarChartComponent {
         type: 'bar',
         background: '#fff',
         toolbar: {
-          show: false,
-          tools: {
-            selection: false
-          }
-        },
-        selection: {
-          enabled: false
+          show: false
         }
       },
       xaxis: {
-        categories: ['01', '02', '03', '04', '05', '06'],
-        tooltip: {
-          enabled: false
-        }
+        categories: this.data.categories
       },
-      legend: {
-        show: false
+      dataLabels: {
+        enabled: true,
+        style: {
+          colors: ['#000']
+        }
       }
     };
-  }
-
-  private provideColor(status: Status): string {
-    if (status === Status.COMPLETE) {
-      return '#19967d';
-    } else if (status === Status.FAILED) {
-      return '#c92d39';
-    } else if (status === Status.PENDING) {
-      return '#ffdf71';
-    } else if (status === Status.UNKNOWN){
-      return '#e5e5e5';
-    }
   }
 }
