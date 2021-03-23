@@ -36,7 +36,18 @@ export class ChartData {
       output.push(dataPoint);
     }
 
-    return output;
+    return output.sort( this.stringComparator );
+  }
+
+  private stringComparator( a: DataPoint, b: DataPoint): number {
+    if (a.x < b.x) {
+      return -1;
+    }
+    if (a.x > b.x) {
+      return 1;
+    }
+
+    return 0;
   }
 
   private getCategories(services: InputData[], rents: InputData[]): string[] {
