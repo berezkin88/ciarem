@@ -1,6 +1,5 @@
 import { Status } from './../models/status';
 import { ChartData } from './../models/chartData';
-import { DocsService } from './docs.service';
 import { Injectable } from '@angular/core';
 
 const services = [

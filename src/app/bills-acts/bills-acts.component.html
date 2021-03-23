@@ -1,12 +1,15 @@
-<div class="row align-items-center justify-content-around">
-  <tenant-office></tenant-office>
-  <h4 class="component-title highlighted-text">Рахунки та акти</h4>
-  <select class="form-select" *ngIf="authService.isPrincipal()">
-    <option selected (click)="filter()">Усі орендарі</option>
-    <option *ngFor="let tenant of tenant$ | async" (click)="filter(tenant.key)">
-      {{ tenant.payload.val().name }}
-    </option>
-  </select>
+
+<div class="row align-items-center mx-1">
+  <tenant-office class="col"></tenant-office>
+  <h4 class="component-title highlighted-text col pt-2 text-center">Рахунки та акти</h4>
+  <div class="col">
+    <select class="form-select" *ngIf="authService.isPrincipal()">
+      <option selected (click)="filter()">Усі орендарі</option>
+      <option *ngFor="let tenant of tenant$ | async" (click)="filter(tenant.key)">
+        {{ tenant.payload.val().name }}
+      </option>
+    </select>
+  </div>
 </div>
 <div>
   <div class="new-docs">
