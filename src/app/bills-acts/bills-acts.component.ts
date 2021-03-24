@@ -7,11 +7,19 @@ import { DocsService } from '../services/docs.service';
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { SnapshotAction } from '@angular/fire/database';
+import { animate, style, transition, trigger, useAnimation } from '@angular/animations';
 
 @Component({
   selector: 'app-bills-acts',
   templateUrl: './bills-acts.component.html',
   styleUrls: ['./bills-acts.component.sass'],
+  animations: [
+    trigger('fadeOut', [
+      transition(':leave', [
+        animate(250, style({ opacity: 0 }))
+      ])
+    ])
+  ]
 })
 export class BillsActsComponent implements OnInit, OnDestroy {
   delete = faTimes;
@@ -90,5 +98,10 @@ export class BillsActsComponent implements OnInit, OnDestroy {
     this.maxYear = this.filteredDocs
       .map((d) => new Date(d.date).getFullYear())
       .reduce((a, b) => Math.max(a, b));
+  }
+
+  remove(doc: Doc): void {
+    const index = this.filteredDocs.indexOf(doc);
+    this.filteredDocs.splice(index, 1);
   }
 }
