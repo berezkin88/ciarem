@@ -1,5 +1,4 @@
 import { CommonModule } from '@angular/common';
-import { fakeBackendProvider } from './fake-back/fake-backend';
 import { environment } from './../environments/environment';
 import { UserService } from './services/user.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -62,8 +61,7 @@ import { BarChartComponent } from './bar-chart/bar-chart.component';
     NgApexchartsModule
   ],
   providers: [
-    UserService,
-    fakeBackendProvider
+    UserService
   ],
   bootstrap: [AppComponent]
 })

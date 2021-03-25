@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 
 import { AuthService } from './auth.service';
@@ -7,12 +6,7 @@ describe('AuthService', () => {
   let service: AuthService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [
-        AuthService,
-        { provide: HttpClient, useClass: MockHttpClient}
-      ]
-    });
+    TestBed.configureTestingModule({});
     service = TestBed.inject(AuthService);
   });
 
@@ -21,11 +15,21 @@ describe('AuthService', () => {
   });
 
   // todo: complete when another approach will be used
-  xit('should return true when login', () => {
+  it('should return true when login', () => {
+    spyOn(service.credentials, 'find').and.returnValue({} as any);
+    const actualValue = service.login('foo', 'boo');
+
+    expect(service.credentials.find).toHaveBeenCalled();
+    expect(actualValue).toBeTruthy();
   });
 
   // todo: complete when another approach will be used
-  xit('should return false when login', () => {
+  it('should return false when login', () => {
+    spyOn(service.credentials, 'find').and.returnValue(undefined);
+    const actualValue = service.login('foo', 'boo');
+
+    expect(service.credentials.find).toHaveBeenCalled();
+    expect(actualValue).toBeFalsy();
   });
 
   it('should return true when logout called', () => {
@@ -95,5 +99,3 @@ describe('AuthService', () => {
     expect(actualValue).toBeFalsy();
   });
 });
-
-class MockHttpClient {}

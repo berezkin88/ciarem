@@ -1,49 +1,37 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 class Credentials {
-  constructor(private username_: string, private password_: string, private token_: string) { }
-
-  get username() {
-    return this.username_;
-  }
-
-  get password() {
-    return this.password_;
-  }
-
-  get token() {
-    return this.token_;
-  }
+  constructor(
+    public username: string,
+    public password: string,
+    public token: string
+  ) {}
 }
 
 class User {
-  constructor(public id: string, public role: string) { }
+  constructor(public id: string, public role: string) {}
 }
 
-const credentials = [
-  new Credentials('tenant', 'tenant', 'MTAxOkJlc3QgU29sdXRpb25z'),
-  new Credentials('secretary', 'secretary', 'OTk5OnNlY3JldGFyeQ=='),
-  new Credentials('manager', 'manager', 'MDAwOm1hbmFnZXI=')
-];
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
-  constructor(private http: HttpClient) { }
+  credentials = [
+    new Credentials('tenant', 'tenant', 'MTAxOkJlc3QgU29sdXRpb25z'),
+    new Credentials('secretary', 'secretary', 'OTk5OnNlY3JldGFyeQ=='),
+    new Credentials('manager', 'manager', 'MDAwOm1hbmFnZXI='),
+  ];
 
   login(username: string, password: string): boolean {
-    const user = credentials.find(
+    const result = this.credentials.find(
       (x) => x.username === username && x.password === password
     );
 
-    if (!user) {
+    if (!result) {
       return false;
     }
 
-    localStorage.setItem('token', user.token);
+    localStorage.setItem('token', result.token);
     return true;
   }
 
