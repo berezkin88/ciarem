@@ -14,7 +14,6 @@ describe('AuthService', () => {
     expect(service).toBeTruthy();
   });
 
-  // todo: complete when another approach will be used
   it('should return true when login', () => {
     spyOn(service.credentials, 'find').and.returnValue({} as any);
     const actualValue = service.login('foo', 'boo');
@@ -23,7 +22,6 @@ describe('AuthService', () => {
     expect(actualValue).toBeTruthy();
   });
 
-  // todo: complete when another approach will be used
   it('should return false when login', () => {
     spyOn(service.credentials, 'find').and.returnValue(undefined);
     const actualValue = service.login('foo', 'boo');
