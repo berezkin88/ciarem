@@ -18,5 +18,6 @@ export class ActReconciliationComponent {
      console.log('Fake function');
      console.log(this.dateFrom);
      console.log(this.dateTo);
+     alert('Not Implemented yet');
    }
 }

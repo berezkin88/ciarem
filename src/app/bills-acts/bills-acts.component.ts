@@ -104,4 +104,17 @@ export class BillsActsComponent implements OnInit, OnDestroy {
     const index = this.filteredDocs.indexOf(doc);
     this.filteredDocs.splice(index, 1);
   }
+
+  newBill(): void {
+    alert('Not Implemented yet');
+  }
+
+  newAct(): void {
+    alert('Not Implemented yet');
+  }
+
+  editDoc(doc: Doc): void {
+    console.log(doc);
+    alert('Not Implemented yet');
+  }
 }

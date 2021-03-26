@@ -13,8 +13,16 @@
 </div>
 <div>
   <div class="new-docs">
-    <button class="btn btn-orange text-icon-color" *ngIf="authService.isPrincipal()">Новий рахунок</button>
-    <button class="btn btn-orange text-icon-color" *ngIf="authService.isPrincipal()">Новий акт</button>
+    <button class="btn btn-orange text-icon-color"
+      *ngIf="authService.isPrincipal()"
+      (click)="newBill()">
+      Новий рахунок
+    </button>
+    <button class="btn btn-orange text-icon-color"
+      *ngIf="authService.isPrincipal()"
+      (click)="newAct()">
+      Новий акт
+    </button>
     <button class="btn btn-orange text-icon-color" routerLink="/act-reconciliation">Акт звірки</button>
   </div>
   <button type="button" class="btn btn-nav" (click)="scrollUp()">
@@ -46,7 +54,10 @@
           <td class="align-middle text-center"><icon-provider [status]="doc.status"></icon-provider></td>
           <td class="align-middle text-center">{{ doc.act }}</td>
           <td class="align-middle text-center" *ngIf="authService.isPrincipal()">
-            <button class="btn btn-orange text-icon-color m-0">Редагувати</button>
+            <button class="btn btn-orange text-icon-color m-0"
+              (click)="editDoc(doc)">
+              Редагувати
+            </button>
           </td>
           <td class="align-middle text-center" *ngIf="authService.isManager()">
             <button class="btn btn-no-indent" (click)="remove(doc)">
