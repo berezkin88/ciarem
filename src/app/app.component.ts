@@ -1,4 +1,4 @@
-import { AuthService } from './services/auth.service';
+import { AuthService } from './shared/services/auth.service';
 import { Component } from '@angular/core';
 import { faBriefcase } from '@fortawesome/free-solid-svg-icons';
 
