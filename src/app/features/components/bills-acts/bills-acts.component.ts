@@ -7,7 +7,7 @@ import { DocsService } from '../../../shared/services/docs.service';
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { SnapshotAction } from '@angular/fire/database';
-import { animate, style, transition, trigger, useAnimation } from '@angular/animations';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-bills-acts',
