@@ -25,7 +25,7 @@
             "aot": true,
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/app"
+                "src/assets/css"
               ]
             },
             "assets": [
@@ -96,7 +96,7 @@
             "karmaConfig": "karma.conf.js",
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/app"
+                "src/assets/css"
               ]
             },
             "assets": [

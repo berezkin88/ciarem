@@ -10,8 +10,18 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { UaMonthPipe } from '../ua-month.pipe';
-import { RouterModule } from '@angular/router';
+import { UaMonthPipe } from './ua-month.pipe';
+import { RouterModule, Routes } from '@angular/router';
+import { AuthGuardService } from '../shared/services/auth-guard.service';
+
+const routes: Routes = [
+  { path: '', component: IssuesComponent, canActivate: [AuthGuardService] },
+  { path: 'bills-acts', component: BillsActsComponent, canActivate: [AuthGuardService] },
+  { path: 'agreements', component: AgreementsComponent, canActivate: [AuthGuardService] },
+  { path: 'bills-schedule', component: BillsScheduleComponent, canActivate: [AuthGuardService] },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
+  { path: 'issues', component: IssuesComponent, canActivate: [AuthGuardService] }
+];
 
 @NgModule({
   declarations: [
@@ -28,7 +38,7 @@ import { RouterModule } from '@angular/router';
     BrowserAnimationsModule,
     SharedModule,
     SubFeaturesModule,
-    RouterModule.forChild([])
+    RouterModule.forChild(routes)
   ]
 })
 export class FeaturesModule { }
