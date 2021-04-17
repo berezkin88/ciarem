@@ -46,6 +46,7 @@
     </div>
   </a>
   <a
+    *ngIf="!authService.isPrincipal(); else principal"
     routerLink="/profile"
     class="list-group-item list-group-item-action"
     [class.active]="getRoute() === '/profile'">
@@ -56,4 +57,17 @@
       </div>
     </div>
   </a>
+  <ng-template #principal>
+    <a
+    routerLink="/clients/new"
+    class="list-group-item list-group-item-action"
+    [class.active]="getRoute() === '/clients/new'">
+    <div class="row">
+      <fa-icon [icon]="profile" size="2x" class="col-3 icon-grey"></fa-icon>
+      <div class="col-9 d-flex align-items-center">
+        <span>Клієнти</span>
+      </div>
+    </div>
+    </a>
+  </ng-template>
 </div>

@@ -8,9 +8,11 @@ import { NewIssueComponent } from './components/new-issue/new-issue.component';
 import { BarChartComponent } from './components/bar-chart/bar-chart.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuardService } from '../shared/services/auth-guard.service';
+import { NewClientComponent } from './components/new-client/new-client.component';
 
 const routes: Routes = [
   { path: 'act-reconciliation', component: ActReconciliationComponent, canActivate: [AuthGuardService] },
+  { path: 'clients/new', component: NewClientComponent, canActivate: [AuthGuardService] },
   { path: 'issues/new', component: NewIssueComponent, canActivate: [AuthGuardService] }
 ];
 
@@ -18,7 +20,8 @@ const routes: Routes = [
   declarations: [
     ActReconciliationComponent,
     NewIssueComponent,
-    BarChartComponent
+    BarChartComponent,
+    NewClientComponent
   ],
   imports: [
     FormsModule,

@@ -39,6 +39,7 @@ import { AngularFireModule } from '@angular/fire';
     IconProviderComponent,
     TenantOfficeComponent,
     AngularFireDatabaseModule,
+    FontAwesomeModule,
     CommonModule
   ]
 })

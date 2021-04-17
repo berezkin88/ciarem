@@ -1,0 +1,66 @@
+
+<div class="row align-items-center mx-1">
+  <tenant-office class="col"></tenant-office>
+  <h4 class="component-title highlighted-text col pt-2 text-center">Новий клієнт</h4>
+  <div class="col"></div>
+</div>
+<div class="content">
+  <form id="issueForm" #f=ngForm (ngSubmit)="submit(f)">
+    <table class="table table-light table-striped table-bordered">
+      <thead>
+        <tr>
+          <th class="text-center">Назва підприємства</th>
+          <th class="text-center col-9">
+            <input type="text" ngModel name="entityName" id="issueTopic" class="w-90 border-black-radius">
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="text-center col-3">Керівник</td>
+          <td class="text-center col-9">
+            <input type="text" ngModel name="ceo" id="ceo" class="w-90 border-black-radius">
+          </td>
+        </tr>
+        <tr>
+          <td class="text-center">Телефон керівника</td>
+          <td class="text-center col-9">
+            <input type="text" ngModel name="ceoPhone" id="ceoPhone" class="w-90 border-black-radius">
+          </td>
+        </tr>
+        <tr>
+          <td class="text-center">ЄДРПОУ</td>
+          <td class="text-center col-9">
+            <input type="text" ngModel name="legalCode" id="legalCode" class="w-90 border-black-radius">
+          </td>
+        </tr>
+        <tr>
+          <td class="text-center">Контактна персона</td>
+          <td class="text-center col-9">
+            <input type="text" ngModel name="contactPerson" id="contactPerson" class="w-90 border-black-radius">
+          </td>
+        </tr>
+        <tr>
+          <td class="text-center">Телефон</td>
+          <td class="text-center col-9">
+            <input type="text" ngModel name="phone" id="phone" class="w-90 border-black-radius">
+          </td>
+        </tr>
+        <tr>
+          <td class="text-center">email</td>
+          <td class="text-center col-9">
+            <input type="text" ngModel name="email" id="email" class="w-90 border-black-radius">
+          </td>
+        </tr>
+        <tr>
+          <td class="text-center">Виписка</td>
+          <td class="text-center col-9">
+            <input type="text" ngModel name="registerIssue" id="registerIssue" class="border-black-radius" style="width: 79%;">
+            <fa-icon [icon]="upload" size="2x" class="mx-3"></fa-icon>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="btn btn-blue text-icon-color text-white px-4 float-right">Зберегти</button>
+  </form>
+</div>
