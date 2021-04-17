@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 
 import { NewClientComponent } from './new-client.component';
 
@@ -8,7 +9,8 @@ describe('NewClientComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NewClientComponent ]
+      declarations: [ NewClientComponent ],
+      imports: [ FormsModule ]
     })
     .compileComponents();
   });

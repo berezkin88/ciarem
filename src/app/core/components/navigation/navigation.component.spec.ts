@@ -14,7 +14,7 @@ describe('NavigationComponent', () => {
 
   beforeEach(() => {
     mockTenantsService = jasmine.createSpyObj('TenantsService', ['getTenantById']);
-    mockAuthService = jasmine.createSpyObj('AuthService', ['getUser']);
+    mockAuthService = jasmine.createSpyObj('AuthService', ['getUser', 'isPrincipal']);
 
     mockAuthService.getUser.and.returnValue({ id: '000', role: 'manager'});
   });
@@ -41,11 +41,11 @@ describe('NavigationComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('laggedIn entity should be manager', () => {
+  it('loggedIn entity should be manager', () => {
     expect(component.loggedUser).toEqual('manager');
   });
 
-  it('laggedIn entity should be test', () => {
+  it('loggedIn entity should be test', () => {
     const spyObj = mockTenantsService.getTenantById.withArgs('101').and.returnValue(of({
       ceo : '',
       ceoPhoneNum : '',
